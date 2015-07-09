@@ -1,0 +1,36 @@
+<!doctype HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quiz</title>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'> -->
+    <link rel="stylesheet" href="global.css">
+    <!-- <link rel="stylesheet" href="normalize.css"> -->
+  </head>
+  <body>
+
+    <div class="questions">
+      <% Question.all.each_with_index do |q,i| %>
+        <div class="question <%="show" if i==0 %>" id="q<%= q.id %>">
+          <h2><%= q.question %></h2>
+          <ol>
+            <% array=q.choice.split(",")
+                array.each do |c| %>
+                  <li><%= c %></li>
+                <% end %>
+              </ol>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div>
+      <input type="text" id="answer">
+      <button id="submitter">Submit</button>
+      <button id="next">Next</button>
+      <div id="question_result"></div>
+    </div>
+
+    <script type='text/javascript' src='global.js'></script>
+    </body>
+</html>
