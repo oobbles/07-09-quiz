@@ -27,8 +27,7 @@ var is_correct_answer = function(answer_text){
 }
 var next_question = function(){
   if(current_question == question.length-1){
-    question_result.innerText="Final Right: " + total_right;
-    answer.value=null;
+    question_result.innerHTML="<h6>Final Right: " + total_right+"</h6>";
 
   }
 
@@ -36,7 +35,6 @@ var next_question = function(){
     var current_question_id= current_question +1;
     var next_question_id = current_question_id + 1;
     current_question++;
-    answer.value=null;
     question_result.innerText ="";
     document.getElementById("q" + current_question_id).className="question";
     document.getElementById("q" + next_question_id).className="question show";

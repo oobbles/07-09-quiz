@@ -1,7 +1,34 @@
+* {
+  box-sizing: border-box;
+  }
+
 .question {
   display: none;
 }
 
 .question.show {
   display: block;
+}
+
+.middy{
+  background: #7F8C8D
+;
+  width:400px;
+  float:left;
+  height:500px;
+  padding-left:30px;
+  padding-right:8px;
+}
+.left{
+    background:#7F8C8D
+;
+    float:left;
+    height: 500px;
+    width:calc(50% - 200px);
+}
+.right{
+    background:#7F8C8D;
+    float:right;
+    height:500px;
+    width:calc(50% - 200px);
 }
