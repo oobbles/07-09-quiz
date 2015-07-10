@@ -4,13 +4,10 @@
     <meta charset="utf-8">
     <title>Quiz</title>
     <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
-
     <link href="dist/css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="dist/css/flat-ui.css" rel="stylesheet">
     <link href="docs/assets/css/demo.css" rel="stylesheet">
-
     <link rel="shortcut icon" href="img/favicon.ico">
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
       <script src="dist/js/vendor/html5shiv.js"></script>
@@ -19,35 +16,33 @@
     <!-- <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" href="global.css">
   </head>
-  <body><div>
-<div class="left"></div>
-<div class="middy">
-    <div class="questions">
-      <% Question.all.each_with_index do |q,i| %>
-        <div class="question <%="show" if i==0 %>" id="q<%= q.id %>">
-          <h4><%= q.question %></h4>
-
-            <select data-toggle="select" class="form-control select select-default mrs mbm">
-            <% array=q.choice.split(",")
-                array.each_with_index do |c,v| %>
-                    <option id="answer" value="<%= v+1 %>"><%= c %></option>
-                <% end %>
-            </select>
-        </div>
-      <% end %>
-      <input type="submit" value="Submit" class="btn" id="submitter">
-
-    <button class="btn" id="next">Next</button>
-
-  </div>
+  <body>
     <div>
+      <div class="left"></div>
+      <div class="middy">
+        <div class="questions">
+          <% Question.all.each_with_index do |q,i| %>
+          <div class="question <%="show" if i==0 %>" id="q<%= q.id %>">
+            <h4><%= q.question %></h4>
+            <select id="a<%= q.id %>" data-correct="<%=q.answer%>" data-toggle="select" class="form-control select select-default mrs mbm">
+              <% array=q.choice.split(",")
+                array.each_with_index do |c,v| %>
+                <option value="<%= v+1 %>"><%= c %></option>
+              <% end %>
+            </select>
+          </div>
+          <% end %>
+          <input type="submit" value="Submit" class="btn" id="submitter">
+          <button class="btn" id="next">Next</button>
+        </div>
+      <div>
       <!-- <input type="text" id="answer" class="form-control" placeholder="Enter Number" style="width:81%"> -->
       <!-- <button class="btn btn-lg btn-inverse" id="submitter">Submit</button> -->
       <div id="question_result"></div>
+      </div>
     </div>
-  </div>
-  <div class="right"></div></div>
-  <div style="clear:both"></div>
+    <div class="right"></div></div>
+    <div style="clear:both"></div>
     <script type='text/javascript' src='global.js'></script>
-    </body>
+  </body>
 </html>
